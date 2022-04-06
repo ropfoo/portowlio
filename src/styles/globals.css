@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    @apply font-montserrat;
+}
+
+html {
+    scroll-behavior: smooth;
+    @apply bg-nightowl;
+
+  }
+
+body {
+    @apply bg-nightowl;
+    @apply text-snowowl;
+}
