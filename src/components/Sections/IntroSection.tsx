@@ -3,7 +3,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { Button } from '../Button';
 import { H1Large, P } from '../Text';
-import { MainSection } from '../Layout';
+import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
 
@@ -51,83 +51,94 @@ const IntroSection: React.FC = () => {
     }, []);
 
     return (
-        <MainSection ref={sectionRef}>
-            <div ref={textRef} className='flex flex-col justify-between'>
-                <div>
-                    <div className='mb-24 md:mb-36 xl:mb-52'>
-                        <H1Large>hey.</H1Large>
+        <section
+            ref={sectionRef}
+            className={`flex h-screen justify-center flex-col ${mainPadding}`}>
+            <div
+                className='
+                flex 
+                flex-row 
+                justify-between
+            '>
+                <div ref={textRef} className='flex flex-col justify-between'>
+                    <div>
+                        <div className='mb-24 md:mb-36 xl:mb-52'>
+                            <H1Large>hey.</H1Large>
+                        </div>
+                        <P>My name is Robert and I am a Frontend Developer. </P>
                     </div>
-                    <P>My name is Robert and I am a Frontend Developer. </P>
-                </div>
 
-                <section className='flex flex-col sm:flex-row'>
-                    <div
-                        className='
+                    <section className='flex flex-col sm:flex-row'>
+                        <div
+                            className='
                         mb-2 sm:mb-0
                         mr-0 sm:mr-5
                     '>
-                        <Button>about me</Button>
-                    </div>
-                    <div>
-                        <Button>projects</Button>
-                    </div>
-                </section>
-            </div>
-            <div
-                className='
-                flex
-                flex-col-reverse md:flex-row
-                items-end 
-                ml-2 sm:ml-10  md:ml-12  lg:ml-28 
-            '>
+                            <Button>about me</Button>
+                        </div>
+                        <div>
+                            <Button>projects</Button>
+                        </div>
+                    </section>
+                </div>
                 <div
-                    ref={socialsRef}
                     className='
-                    bg-snowowl 
-                    h-12 md:h-72 
-                    w-[150px] md:w-28 
-                    rounded-md
                     flex
-                    flex-row md:flex-col
-                    justify-end
-                    items-center
-                    md:pb-7
-                    pr-5 md:pr-0
-                    mt-5 md:mt-0
+                    flex-col-reverse md:flex-row
+                    items-end 
+                    ml-2
                 '>
-                    <a
+                    <div
+                        ref={socialsRef}
                         className='
+                        bg-snowowl 
+                        h-12 md:h-72 
+                        w-[150px] md:w-28 
+                        rounded-md
+                        flex
+                        flex-row md:flex-col
+                        justify-end
+                        items-center
+                        md:pb-7
+                        pr-5 md:pr-0
+                        mt-5 md:mt-0
+                '>
+                        <a
+                            className='
                         bg-transparent 
                         pr-5 md:pr-0 
                         md:mb-5 
                         hover:scale-125 
-                        transition-transform'
-                        href='#'>
-                        <GithubIcon />
-                    </a>
-                    <a
-                        className='bg-transparent hover:scale-125 transition-transform'
-                        href='#'>
-                        <LinkedinIcon />
-                    </a>
-                </div>
-                <div
-                    ref={meImageRef}
-                    className='
+                        transition-transform
+                        duration-300
+                        '
+                            href='#'>
+                            <GithubIcon />
+                        </a>
+                        <a
+                            className='bg-transparent hover:scale-125 transition-transform duration-300'
+                            href='#'>
+                            <LinkedinIcon />
+                        </a>
+                    </div>
+                    <div
+                        ref={meImageRef}
+                        className='
                     w-[150px] xl:w-[250px]
                     h-[500px] xl:h-[611px]
                     ml-2 md:ml-5 lg:ml-14
                     relative 
                 '>
-                    <Image
-                        className='object-cover rounded-md select-none pointer-events-none'
-                        src={'/images/rp_team.jpg'}
-                        layout={'fill'}
-                        priority
-                    />
+                        <Image
+                            className='object-cover rounded-md select-none pointer-events-none'
+                            src='/images/rp_team.jpg'
+                            layout='fill'
+                            priority
+                        />
+                    </div>
                 </div>
             </div>
-        </MainSection>
+        </section>
     );
 };
 

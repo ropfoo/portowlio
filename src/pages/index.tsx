@@ -1,21 +1,17 @@
+import { useEffect, useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
-import { mainPadding } from '../components/Layout';
 import AboutSection from '../components/Sections/AboutSection';
-import { OwlIcon } from '../components/icons/Owl/OwlIcon';
 import Navbar from '../components/Navbar/Navbar';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home: NextPage = () => {
-    const introRef = useRef(null);
     const aboutRef = useRef(null);
-    const projectRef = useRef(null);
     const navRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         gsap.to(navRef.current, {
@@ -41,22 +37,13 @@ const Home: NextPage = () => {
 
             <Navbar navbarRef={navRef} />
 
-            <main className='flex flex-col justify-center  h-screen'>
+            <main>
                 <IntroSection />
-            </main>
+                {/* <main className='flex flex-col justify-center  h-screen'>
+                </main> */}
 
-            <main
-                id='about'
-                ref={aboutRef}
-                className='flex flex-col justify-center  h-screen'>
-                <AboutSection />
-            </main>
-
-            <main
-                id='projects'
-                ref={projectRef}
-                className='flex flex-col justify-center  h-screen'>
-                <ProjectsSection />
+                <AboutSection id='about' sectionRef={aboutRef} />
+                <ProjectsSection id='projects' />
             </main>
         </div>
     );

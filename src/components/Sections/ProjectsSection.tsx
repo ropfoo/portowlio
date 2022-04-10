@@ -1,17 +1,13 @@
-import Image from 'next/image';
-import { Button } from '../Button';
-import { MainSection } from '../Layout';
+import { MainSection, SectionProps } from '../Layout';
 import ProjectCard from '../ProjectCard/ProjectCard';
-import { H1, P } from '../Text';
+import { H1 } from '../Text';
 
-const ProjectsSection: React.FC = () => {
+const ProjectsSection: React.FC<SectionProps> = ({ id, sectionRef }) => {
     return (
-        <MainSection>
+        <MainSection id={id} sectionRef={sectionRef}>
             <div className='flex flex-col justify-between'>
                 <div>
-                    <div className='mb-24 md:mb-36 xl:mb-52'>
-                        <H1>projects:</H1>
-                    </div>
+                    <H1>projects:</H1>
                 </div>
 
                 <ProjectCard />

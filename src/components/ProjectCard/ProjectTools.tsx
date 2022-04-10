@@ -16,6 +16,7 @@ const ProjectTools: React.FC<ProjectToolsProps> = ({ tools }) => {
             w-fit
             flex
             mb-10
+            mt-5
             justify-evenly
         '>
             {tools.map((tool, index) => (
