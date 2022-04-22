@@ -1,9 +1,11 @@
 import React, { RefObject } from 'react';
+import { SectionType } from '../types';
 export const mainPadding = 'px-3 sm:px-24 md:px-24 lg:px-36 xl:px-60 2xl:px-96';
 
 export interface SectionProps {
     id?: string;
     sectionRef?: RefObject<HTMLDivElement>;
+    data?: SectionType;
 }
 
 interface MainSectionProps extends SectionProps {

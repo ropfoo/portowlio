@@ -7,9 +7,16 @@ export type ProjectType = {
     githubLink?: string;
 };
 
+export type SectionType = {
+    title: string;
+    body: string;
+};
+
 export type ToolType =
     | 'react'
     | 'react-native'
     | 'graphql'
     | 'typescript'
+    | 'firebase'
+    | 'tailwind'
     | 'nodejs';

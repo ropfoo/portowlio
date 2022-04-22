@@ -1,8 +1,8 @@
-export const GithubIcon: React.FC = () => (
+export const GithubIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
     <svg
         className='bg-transparent'
-        width='40'
-        height='40'
+        width={size}
+        height={size}
         viewBox='0 0 49 49'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>

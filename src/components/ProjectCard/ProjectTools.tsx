@@ -15,8 +15,9 @@ const ProjectTools: React.FC<ProjectToolsProps> = ({ tools }) => {
             rounded-full
             w-fit
             flex
-            mb-10
+            mb-9
             mt-5
+            items-center
             justify-evenly
         '>
             {tools.map((tool, index) => (

@@ -10,7 +10,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-    console.log(project.toolIds);
     return (
         <div
             className='
@@ -34,17 +33,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     <article>
                         <ReactMarkdown>{project.description}</ReactMarkdown>
                     </article>
-                    <div className='mt-5'>
+                    <div className='mt-10'>
                         {project.githubLink && (
-                            <a
-                                className='
-                                scale-50
-                                transition-transform
-                                '
-                                href={project.githubLink}
-                                target='_blank'>
-                                <GithubIcon />
-                            </a>
+                            <div className='w-fit hover:scale-125 duration-300'>
+                                <a href={project.githubLink} target='_blank'>
+                                    <GithubIcon size={32} />
+                                </a>
+                            </div>
                         )}
                     </div>
                 </div>

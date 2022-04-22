@@ -8,21 +8,28 @@ import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
 import Navbar from '../components/Navbar/Navbar';
 import { useNavAnimation } from '../hooks/useNavAnimaiton';
-import { getMarkdownData } from '../helper/getMarkdownData';
-import { ProjectType } from '../types';
+import { getProjectsData } from '../helper/getProjectsData';
+import { ProjectType, SectionType } from '../types';
+import { getSectionData } from '../helper/getSectionData';
 
 export async function getStaticProps() {
-    const projects = await getMarkdownData();
+    const projects = await getProjectsData();
+    const aboutData = await getSectionData('about');
+    const introData = await getSectionData('intro');
 
     return {
         props: {
             projects,
+            aboutData,
+            introData,
         },
     };
 }
 
 interface HomeProps {
     projects: ProjectType[];
+    aboutData: SectionType;
+    introData: SectionType;
 }
 
 const Home: NextPage<HomeProps> = props => {
@@ -45,8 +52,12 @@ const Home: NextPage<HomeProps> = props => {
             </Head>
             <Navbar navbarRef={navRef} />
             <main>
-                <IntroSection />
-                <AboutSection id='about' sectionRef={aboutRef} />
+                <IntroSection data={props.introData} />
+                <AboutSection
+                    id='about'
+                    sectionRef={aboutRef}
+                    data={props.aboutData}
+                />
                 <ProjectsSection id='projects' projects={props.projects} />
             </main>
         </div>

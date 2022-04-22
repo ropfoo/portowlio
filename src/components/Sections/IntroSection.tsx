@@ -1,13 +1,19 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 import gsap from 'gsap';
 import { Button } from '../Button';
 import { H1Large, P } from '../Text';
 import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
+import { SectionType } from '../../types';
 
-const IntroSection: React.FC = () => {
+interface IntroSectionProps {
+    data: SectionType;
+}
+
+const IntroSection: React.FC<IntroSectionProps> = ({ data }) => {
     const meImageRef = useRef<HTMLDivElement>(null);
     const socialsRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
@@ -63,17 +69,19 @@ const IntroSection: React.FC = () => {
                 <div ref={textRef} className='flex flex-col justify-between'>
                     <div>
                         <div className='mb-24 md:mb-36 xl:mb-52'>
-                            <H1Large>hey.</H1Large>
+                            <H1Large>{data.title}</H1Large>
                         </div>
-                        <P>My name is Robert and I am a Frontend Developer. </P>
+                        <article className='w-8/12'>
+                            <ReactMarkdown>{data.body}</ReactMarkdown>
+                        </article>
                     </div>
 
                     <section className='flex flex-col sm:flex-row'>
                         <div
                             className='
-                        mb-2 sm:mb-0
-                        mr-0 sm:mr-5
-                    '>
+                            mb-2 sm:mb-0
+                            mr-0 sm:mr-5
+                        '>
                             <Button>about me</Button>
                         </div>
                         <div>
@@ -105,13 +113,13 @@ const IntroSection: React.FC = () => {
                 '>
                         <a
                             className='
-                        bg-transparent 
-                        pr-5 md:pr-0 
-                        md:mb-5 
-                        hover:scale-125 
-                        transition-transform
-                        duration-300
-                        '
+                            bg-transparent 
+                            pr-5 md:pr-0 
+                            md:mb-5 
+                            hover:scale-125 
+                            transition-transform
+                            duration-300
+                            '
                             href='#'>
                             <GithubIcon />
                         </a>
@@ -124,11 +132,11 @@ const IntroSection: React.FC = () => {
                     <div
                         ref={meImageRef}
                         className='
-                    w-[150px] xl:w-[250px]
-                    h-[500px] xl:h-[611px]
-                    ml-2 md:ml-5 lg:ml-14
-                    relative 
-                '>
+                        w-[150px] xl:w-[250px]
+                        h-[500px] xl:h-[611px]
+                        ml-2 md:ml-5 lg:ml-14
+                        relative 
+                    '>
                         <Image
                             className='object-cover rounded-md select-none pointer-events-none'
                             src='/images/rp_team.jpg'
