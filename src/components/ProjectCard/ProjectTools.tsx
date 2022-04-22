@@ -1,5 +1,5 @@
+import { ToolType } from '../../types';
 import ProjectTool from './ProjectTool';
-import { ToolType } from './ToolType';
 
 interface ProjectToolsProps {
     tools: ToolType[];
@@ -21,7 +21,7 @@ const ProjectTools: React.FC<ProjectToolsProps> = ({ tools }) => {
         '>
             {tools.map((tool, index) => (
                 <div
-                    className={`${index < tools.length - 1 && 'pr-3'}`}
+                    className={`${index < tools.length - 1 && 'pr-4'}`}
                     key={tool}>
                     <ProjectTool tool={tool} />
                 </div>

@@ -1,9 +1,16 @@
+import { ProjectType } from '../../types';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { H3, P } from '../Text';
 import ProjectCarousel from './ProjectCarousel';
 import ProjectTools from './ProjectTools';
+import ReactMarkdown from 'react-markdown';
 
-const ProjectCard: React.FC = () => {
+interface ProjectCardProps {
+    project: ProjectType;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+    console.log(project.toolIds);
     return (
         <div
             className='
@@ -22,20 +29,23 @@ const ProjectCard: React.FC = () => {
                 md:mr-6
             '>
                 <div>
-                    <H3>Project Title</H3>
-                    <ProjectTools tools={['react', 'graphql']} />
-                    <P>
-                        Eine tolle Beschreibung die das Projekt beschreibt und
-                        ich habe keine Ahnung, was ich hier noch schreiben soll
-                    </P>
+                    <H3>{project.title}</H3>
+                    <ProjectTools tools={project.toolIds} />
+                    <article>
+                        <ReactMarkdown>{project.description}</ReactMarkdown>
+                    </article>
                     <div className='mt-5'>
-                        <a
-                            className='
-                            scale-50
-                            transition-transform'
-                            href='#'>
-                            <GithubIcon />
-                        </a>
+                        {project.githubLink && (
+                            <a
+                                className='
+                                scale-50
+                                transition-transform
+                                '
+                                href={project.githubLink}
+                                target='_blank'>
+                                <GithubIcon />
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
@@ -46,7 +56,7 @@ const ProjectCard: React.FC = () => {
                 bg-snowowl 
                 rounded-md 
             '>
-                <ProjectCarousel />
+                <ProjectCarousel imageSources={project.carousel} />
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import gsap from 'gsap';
@@ -8,16 +8,24 @@ import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
 import Navbar from '../components/Navbar/Navbar';
 import { useNavAnimation } from '../hooks/useNavAnimaiton';
+import { getMarkdownData } from '../helper/getMarkdownData';
+import { ProjectType } from '../types';
 
 export async function getStaticProps() {
+    const projects = await getMarkdownData();
+
     return {
         props: {
-            title: 'hello',
+            projects,
         },
     };
 }
 
-const Home: NextPage = props => {
+interface HomeProps {
+    projects: ProjectType[];
+}
+
+const Home: NextPage<HomeProps> = props => {
     const aboutRef = useRef(null);
     const navRef = useRef<HTMLDivElement>(null);
 
@@ -35,15 +43,11 @@ const Home: NextPage = props => {
                     href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
                     rel='stylesheet'></link>
             </Head>
-
             <Navbar navbarRef={navRef} />
             <main>
                 <IntroSection />
-                {/* <main className='flex flex-col justify-center  h-screen'>
-                </main> */}
-
                 <AboutSection id='about' sectionRef={aboutRef} />
-                <ProjectsSection id='projects' />
+                <ProjectsSection id='projects' projects={props.projects} />
             </main>
         </div>
     );

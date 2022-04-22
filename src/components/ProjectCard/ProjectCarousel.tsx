@@ -2,7 +2,11 @@ import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const ProjectCarousel: React.FC = () => {
+interface ProjectCarouselProps {
+    imageSources: string[];
+}
+
+const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
     return (
         <Carousel
             className='rounded-md'
@@ -10,19 +14,23 @@ const ProjectCarousel: React.FC = () => {
             emulateTouch
             showThumbs={false}
             showStatus={false}>
-            <CarouselElement />
-            <CarouselElement />
-            <CarouselElement />
+            {imageSources.map(source => (
+                <CarouselElement key={source} source={source} />
+            ))}
         </Carousel>
     );
 };
 
-const CarouselElement: React.FC = () => {
+interface CarouselElementProps {
+    source: string;
+}
+
+const CarouselElement: React.FC<CarouselElementProps> = ({ source }) => {
     return (
         <div className='h-56 md:h-64 rounded-md'>
             <Image
                 className='object-cover rounded-md select-none pointer-events-none'
-                src='/images/rp_team.jpg'
+                src={source}
                 layout='fill'
             />
         </div>
