@@ -7,23 +7,24 @@ import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
 import Navbar from '../components/Navbar/Navbar';
+import { useNavAnimation } from '../hooks/useNavAnimaiton';
 
-gsap.registerPlugin(ScrollTrigger);
+export async function getStaticProps() {
+    return {
+        props: {
+            title: 'hello',
+        },
+    };
+}
 
-const Home: NextPage = () => {
+const Home: NextPage = props => {
     const aboutRef = useRef(null);
     const navRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        gsap.to(navRef.current, {
-            y: 64,
-            duration: 0.3,
-            scrollTrigger: {
-                trigger: aboutRef.current,
-                toggleActions: 'play pause resume reverse',
-                start: 'top 100px',
-            },
-        });
-    }, []);
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    useNavAnimation(navRef, aboutRef);
+
     return (
         <div>
             <Head>
@@ -36,7 +37,6 @@ const Home: NextPage = () => {
             </Head>
 
             <Navbar navbarRef={navRef} />
-
             <main>
                 <IntroSection />
                 {/* <main className='flex flex-col justify-center  h-screen'>
