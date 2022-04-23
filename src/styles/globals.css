@@ -16,3 +16,7 @@ body {
     @apply bg-nightowl;
     @apply text-snowowl;
 }
+
+p {
+    @apply leading-loose
+}

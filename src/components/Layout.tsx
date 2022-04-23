@@ -26,7 +26,7 @@ export const MainSection: React.FC<MainSectionProps> = ({
             flex 
             flex-col
             justify-center
-            mb-36 md:mb-72
+            pb-36 md:pb-72
             ${mainPadding}
             ${customCSS}
             `}>

@@ -28,10 +28,16 @@ const Navbar: React.FC<NavbarProps> = ({ navbarRef }) => {
                 <OwlIcon />
             </a>
             <div className='flex'>
-                <a className='mr-10' href='#about'>
+                <a
+                    className='mr-10 hover:text-jeans duration-200 transition-colors'
+                    href='#about'>
                     about me
                 </a>
-                <a href='#projects'>projects</a>
+                <a
+                    className='hover:text-jeans duration-200 transition-colors'
+                    href='#projects'>
+                    projects
+                </a>
             </div>
         </nav>
     );

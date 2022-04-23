@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown';
+import { Article } from '../Article';
 import { MainSection, SectionProps } from '../Layout';
 import { H1 } from '../Text';
 
@@ -13,9 +14,9 @@ const AboutSection: React.FC<SectionProps> = ({
                 <div>
                     <H1>{sectionData?.title}</H1>
                     {sectionData?.body && (
-                        <article>
+                        <Article>
                             <ReactMarkdown>{sectionData.body}</ReactMarkdown>
-                        </article>
+                        </Article>
                     )}
                 </div>
             </div>

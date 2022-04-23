@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ToolType } from '../../types';
+import { ArrowIcon } from '../icons/Arrow/ArrowIcon';
 import ProjectTool from '../ProjectCard/ProjectTool';
 import ProjectFilterOption from './ProjectFilterOption';
 
@@ -32,19 +33,32 @@ const ProjectsFilter: React.FC<ProjectsFilterProps> = ({
                     flex
                     bg-stoneowl
                     transition-all
+                    justify-between
+                    items-center
                     duration-200
                     ${isOptionsVisible ? 'rounded-l-lg' : 'rounded-lg'}
                 `}>
-                    {activeFilter && (
-                        <div className='mr-2'>
-                            <ProjectTool
-                                color={'#EEF3F7'}
-                                tool={activeFilter}
-                                showNameOnHover={false}
-                            />
-                        </div>
-                    )}
-                    {activeFilter ?? 'all'}
+                    <div className='flex'>
+                        {activeFilter && (
+                            <div className='mr-2'>
+                                <ProjectTool
+                                    color={'#EEF3F7'}
+                                    tool={activeFilter}
+                                    showNameOnHover={false}
+                                />
+                            </div>
+                        )}
+                        {activeFilter ?? 'all'}
+                    </div>
+                    <div
+                        className={`
+                        -rotate-90
+                        ${isOptionsVisible ? 'scale-100' : 'scale-[65%]'}
+                    `}>
+                        <ArrowIcon
+                            color={isOptionsVisible ? '#0085FF' : '#EEF3F7'}
+                        />
+                    </div>
                 </div>
                 <div
                     className={`

@@ -47,7 +47,7 @@ const Home: NextPage<HomeProps> = props => {
     return (
         <div>
             <Head>
-                <title>Robert Pasdziernik</title>
+                <title>Portfolio | Robert Pasdziernik</title>
                 <meta name='description' content='portfolio' />
                 <link rel='icon' href='/favicon.ico' />
                 <link

@@ -71,22 +71,23 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                         <div className='mb-24 md:mb-36 xl:mb-52'>
                             <H1Large>{sectionData.title}</H1Large>
                         </div>
-                        <article className='w-8/12'>
+                        <article className='w-full md:w-8/12'>
                             <ReactMarkdown>{sectionData.body}</ReactMarkdown>
                         </article>
                     </div>
 
                     <section className='flex flex-col sm:flex-row'>
-                        <div
+                        <a
                             className='
                             mb-2 sm:mb-0
                             mr-0 sm:mr-5
-                        '>
+                        '
+                            href='#about'>
                             <Button>about me</Button>
-                        </div>
-                        <div>
+                        </a>
+                        <a href='#projects'>
                             <Button>projects</Button>
-                        </div>
+                        </a>
                     </section>
                 </div>
                 <div

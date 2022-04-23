@@ -9,7 +9,7 @@ interface ProjectCarouselProps {
 const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
     return (
         <Carousel
-            className='rounded-md'
+            className='rounded-md bg-nightowl'
             infiniteLoop
             emulateTouch
             preventMovementUntilSwipeScrollTolerance
