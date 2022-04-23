@@ -17,6 +17,7 @@ export async function getProjectsData(): Promise<ProjectType[]> {
 
         projects.push({
             id: uuidv4(),
+            public: !!data.public,
             title: data.title,
             toolIds: data.tools,
             githubLink: data.github ?? '',

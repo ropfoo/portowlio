@@ -1,4 +1,5 @@
 ---
+public: true
 title: 'packerino'
 tools: ['react', 'firebase', 'tailwind']
 github: 'https://github.com/ropfoo/packerino'

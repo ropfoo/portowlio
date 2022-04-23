@@ -1,4 +1,5 @@
 ---
+public: true
 title: 'dottree'
 tools: ['react', 'ionic', 'firebase']
 # github: 'https://github.com/ropfoo/langry'

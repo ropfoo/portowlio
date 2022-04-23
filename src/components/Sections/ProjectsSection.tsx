@@ -20,9 +20,10 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
 
     const filteredProjects = useMemo(
         () =>
-            projects.filter(project =>
-                filter ? project.toolIds.includes(filter) : project
-            ),
+            projects.filter(project => {
+                if (project.public)
+                    return filter ? project.toolIds.includes(filter) : true;
+            }),
         [filter, projects]
     );
 

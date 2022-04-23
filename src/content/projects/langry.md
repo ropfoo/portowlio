@@ -1,4 +1,5 @@
 ---
+public: false
 title: 'langry'
 tools: ['nodejs', 'react']
 github: 'https://github.com/ropfoo/langry'

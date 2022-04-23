@@ -1,5 +1,6 @@
 export type ProjectType = {
     id: string;
+    public: boolean;
     title: string;
     description: string;
     toolIds: ToolType[];

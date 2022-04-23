@@ -1,4 +1,5 @@
 ---
+public: true
 title: 'pedalbrain'
 tools: ['flutter', 'firebase']
 github: 'https://github.com/ropfoo/pedalbrain'

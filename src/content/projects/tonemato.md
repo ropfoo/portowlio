@@ -1,4 +1,5 @@
 ---
+public: true
 title: 'tonemato'
 tools: ['react', 'nextjs', 'graphql', 'nodejs']
 github: 'https://github.com/digitowly/tonemato'
@@ -9,4 +10,4 @@ carousel:
     ]
 ---
 
-tonemato is a really cool project I have been working on.
+Platform to connect with musicians.
