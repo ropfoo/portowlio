@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ToolType } from '../../types';
-import { Button } from '../Button';
 import ProjectTool from '../ProjectCard/ProjectTool';
+import ProjectFilterOption from './ProjectFilterOption';
 
 interface ProjectsFilterProps {
     activeFilter: ToolType | null;
@@ -50,11 +50,10 @@ const ProjectsFilter: React.FC<ProjectsFilterProps> = ({
                     className={`
                     flex
                     flex-col md:flex-row
-                    top-0
                     items-start md:items-center 
                     left-36 md:left-0
                     absolute md:relative
-                    -translate-y-1/3
+                    -translate-y-1/3 md:translate-y-0
                     rounded-lg
                     drop-shadow-lg
                     bg-stoneowl md:bg-transparent
@@ -62,43 +61,24 @@ const ProjectsFilter: React.FC<ProjectsFilterProps> = ({
                     origin-left 
                     ${
                         isOptionsVisible
-                            ? 'scale-100 opacity-1'
-                            : 'scale-0 opacity-0'
+                            ? 'scale-100 opacity-100 '
+                            : 'scale-0 md:scale-100  opacity-0 md:opacity-100'
                     }
+                    
+                    md:opacity-1
                 `}>
-                    <div onClick={() => handleChange(null)}>all</div>
+                    <ProjectFilterOption
+                        tool={null}
+                        isActive={activeFilter === null}
+                        onClick={() => handleChange(null)}
+                    />
                     {filterableTools.map(tool => (
-                        <div
+                        <ProjectFilterOption
                             key={tool}
-                            className={`
-                            flex 
-                            md:ml-3 
-                            md:border-[1px] 
-                            px-5 md:px-3
-                            py-4 md:py-1 
-                            md:rounded-full
-                            w-full md:w-fit
-                            items-center
-                            transition-all
-                            duration-300
-                            cursor-pointer
-                            hover:border-jeans
-                            ${
-                                tool === activeFilter
-                                    ? 'bg-jeans border-jeans'
-                                    : 'md:bg-stoneowl border-stoneowl'
-                            }
-                            `}
-                            onClick={() => handleChange(tool)}>
-                            <div className='mr-2'>
-                                <ProjectTool
-                                    color={'#EEF3F7'}
-                                    tool={tool}
-                                    showNameOnHover={false}
-                                />
-                            </div>
-                            {tool}
-                        </div>
+                            tool={tool}
+                            isActive={activeFilter === tool}
+                            onClick={() => handleChange(tool)}
+                        />
                     ))}
                 </div>
             </div>
