@@ -63,21 +63,21 @@ const ProjectsFilter: React.FC<ProjectsFilterProps> = ({
                         isOptionsVisible
                             ? 'scale-100 opacity-100 '
                             : 'scale-0 md:scale-100  opacity-0 md:opacity-100'
-                    }
-                    
-                    md:opacity-1
+                    }                    
                 `}>
                     <ProjectFilterOption
                         tool={null}
                         isActive={activeFilter === null}
                         onClick={() => handleChange(null)}
+                        isFirst
                     />
-                    {filterableTools.map(tool => (
+                    {filterableTools.map((tool, index) => (
                         <ProjectFilterOption
                             key={tool}
                             tool={tool}
                             isActive={activeFilter === tool}
                             onClick={() => handleChange(tool)}
+                            isLast={index === filterableTools.length - 1}
                         />
                     ))}
                 </div>

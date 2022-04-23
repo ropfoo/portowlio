@@ -5,12 +5,16 @@ interface ProjectFilterOptionProps {
     tool: ToolType | null;
     isActive: boolean;
     onClick: () => void;
+    isFirst?: boolean;
+    isLast?: boolean;
 }
 
 const ProjectFilterOption: React.FC<ProjectFilterOptionProps> = ({
     tool,
     isActive,
     onClick,
+    isFirst,
+    isLast,
 }) => {
     return (
         <div
@@ -33,6 +37,8 @@ const ProjectFilterOption: React.FC<ProjectFilterOptionProps> = ({
                     ? 'bg-jeans border-jeans'
                     : 'md:bg-stoneowl border-stoneowl'
             }
+            ${isFirst && 'rounded-t-lg'}
+            ${isLast && 'rounded-b-lg'}
             `}
             onClick={() => onClick()}>
             <div className='mr-2'>
