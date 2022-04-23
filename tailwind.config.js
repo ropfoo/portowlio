@@ -12,6 +12,7 @@ module.exports = {
         colors: {
             snowowl: '#EEF3F7',
             nightowl: '#08080A',
+            stoneowl: '#262639',
             mouse: '#DDE6ED',
             jeans: '#0085FF',
             transparent: 'transparent',
