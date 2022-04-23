@@ -36,7 +36,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     <div className='mt-10'>
                         {project.githubLink && (
                             <div className='w-fit hover:scale-125 duration-300'>
-                                <a href={project.githubLink} target='_blank'>
+                                <a
+                                    href={project.githubLink}
+                                    target='_blank'
+                                    rel='noreferrer'>
                                     <GithubIcon size={32} />
                                 </a>
                             </div>

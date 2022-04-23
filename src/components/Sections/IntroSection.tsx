@@ -122,13 +122,15 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                             duration-300
                             '
                             href={sectionData.githubLink}
-                            target='_blank'>
+                            target='_blank'
+                            rel='noreferrer'>
                             <GithubIcon />
                         </a>
                         <a
                             className='bg-transparent hover:scale-125 transition-transform duration-300'
                             href={sectionData.linkedInLink}
-                            target='_blank'>
+                            target='_blank'
+                            rel='noreferrer'>
                             <LinkedinIcon />
                         </a>
                     </div>
