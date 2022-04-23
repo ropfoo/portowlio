@@ -1,5 +1,10 @@
-export const Button: React.FC = ({ children }) => (
+interface ButtonProps {
+    onClick?: () => void;
+}
+
+export const Button: React.FC<ButtonProps> = ({ children, onClick }) => (
     <button
+        onClick={() => onClick && onClick()}
         className='
         bg-snowowl hover:bg-jeans
         text-nightowl 

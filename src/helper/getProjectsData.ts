@@ -19,7 +19,7 @@ export async function getProjectsData(): Promise<ProjectType[]> {
             id: uuidv4(),
             title: data.title,
             toolIds: data.tools,
-            githubLink: data.github,
+            githubLink: data.github ?? '',
             carousel: data.carousel,
             description: content,
         });

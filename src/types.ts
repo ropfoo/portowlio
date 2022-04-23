@@ -19,12 +19,11 @@ export interface IntroSectionData extends SectionData {
 
 export type ToolType =
     | 'react'
-    | 'react-native'
     | 'nextjs'
     | 'gatsby'
     | 'graphql'
-    | 'typescript'
     | 'firebase'
     | 'tailwind'
     | 'flutter'
+    | 'ionic'
     | 'nodejs';

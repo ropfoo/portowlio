@@ -1,6 +1,8 @@
-import { ProjectType } from '../../types';
+import { useMemo, useState } from 'react';
+import { ProjectType, ToolType } from '../../types';
 import { MainSection, SectionProps } from '../Layout';
 import ProjectCard from '../ProjectCard/ProjectCard';
+import ProjectsFilter from '../ProjectsFilter/ProjectsFilter';
 import { H1 } from '../Text';
 
 interface ProjectSectionProps extends SectionProps {
@@ -13,6 +15,16 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
     projects,
     sectionData,
 }) => {
+    const [filter, setFilter] = useState<ToolType | null>(null);
+
+    const filteredProjects = useMemo(
+        () =>
+            projects.filter(project =>
+                filter ? project.toolIds.includes(filter) : project
+            ),
+        [filter, projects]
+    );
+
     return (
         <MainSection id={id} sectionRef={sectionRef}>
             <div className='flex flex-col'>
@@ -21,7 +33,11 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
                 <article>{sectionData?.body}</article>
 
                 <div className='mt-24'>
-                    {projects.map(project => (
+                    <ProjectsFilter
+                        activeFilter={filter}
+                        handleChange={filterType => setFilter(filterType)}
+                    />
+                    {filteredProjects.map(project => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
