@@ -9,27 +9,31 @@ import AboutSection from '../components/Sections/AboutSection';
 import Navbar from '../components/Navbar/Navbar';
 import { useNavAnimation } from '../hooks/useNavAnimaiton';
 import { getProjectsData } from '../helper/getProjectsData';
-import { ProjectType, SectionType } from '../types';
-import { getSectionData } from '../helper/getSectionData';
+import { IntroSectionData, ProjectType, SectionData } from '../types';
+import { getIntroSectionData, getSectionData } from '../helper/getSectionData';
 
 export async function getStaticProps() {
     const projects = await getProjectsData();
-    const aboutData = await getSectionData('about');
-    const introData = await getSectionData('intro');
+
+    const introSectionData = await getIntroSectionData();
+    const aboutSectionData = await getSectionData('about');
+    const projectsSectionData = await getSectionData('projects');
 
     return {
         props: {
             projects,
-            aboutData,
-            introData,
+            aboutSectionData,
+            introSectionData,
+            projectsSectionData,
         },
     };
 }
 
 interface HomeProps {
     projects: ProjectType[];
-    aboutData: SectionType;
-    introData: SectionType;
+    introSectionData: IntroSectionData;
+    aboutSectionData: SectionData;
+    projectsSectionData: SectionData;
 }
 
 const Home: NextPage<HomeProps> = props => {
@@ -52,13 +56,17 @@ const Home: NextPage<HomeProps> = props => {
             </Head>
             <Navbar navbarRef={navRef} />
             <main>
-                <IntroSection data={props.introData} />
+                <IntroSection sectionData={props.introSectionData} />
                 <AboutSection
                     id='about'
                     sectionRef={aboutRef}
-                    data={props.aboutData}
+                    sectionData={props.aboutSectionData}
                 />
-                <ProjectsSection id='projects' projects={props.projects} />
+                <ProjectsSection
+                    id='projects'
+                    projects={props.projects}
+                    sectionData={props.projectsSectionData}
+                />
             </main>
         </div>
     );

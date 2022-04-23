@@ -1,10 +1,13 @@
 import { useMemo, useState } from 'react';
 import { ToolType } from '../../types';
+import { FlutterIcon } from '../icons/Tools/FlutterIcon/FlutterIcon';
 import { FirebaseIcon } from '../icons/Tools/FirebaseIcon/FirebaseIcon';
 import { GraphQLIcon } from '../icons/Tools/GQLIcon/GraphQLIcon';
 import { NodeJSIcon } from '../icons/Tools/NodeJsIcon/NodeJSIcon';
 import { ReactIcon } from '../icons/Tools/ReactIcon/ReactIcon';
 import { TailwindIcon } from '../icons/Tools/TailwindIcon/TailwindIcon';
+import { NextJsIcon } from '../icons/Tools/NextJsIcon/NextJsIcon';
+import { GatsbyIcon } from '../icons/Tools/GatsbyIcon/GatsbyIcon';
 
 interface ProjectToolProps {
     tool: ToolType;
@@ -18,6 +21,9 @@ const ProjectTool: React.FC<ProjectToolProps> = ({ tool }) => {
         if (tool === 'nodejs') return <NodeJSIcon />;
         if (tool === 'firebase') return <FirebaseIcon />;
         if (tool === 'tailwind') return <TailwindIcon />;
+        if (tool === 'flutter') return <FlutterIcon />;
+        if (tool === 'nextjs') return <NextJsIcon size={19} />;
+        if (tool === 'gatsby') return <GatsbyIcon size={19} />;
         return <></>;
     }, [tool]);
 

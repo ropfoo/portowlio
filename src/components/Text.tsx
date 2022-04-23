@@ -25,7 +25,7 @@ export const H1: React.FC = ({ children }) => (
     <h1
         className='
         text-[45px] md:text-[70px] xl:text-[100px]
-        pb-5 md:pb-24
+        pb-5 md:pb-16 xl:pb-20
         mt-16
         font-bold 
         transition-all
@@ -37,7 +37,7 @@ export const H1: React.FC = ({ children }) => (
 export const H3: React.FC = ({ children }) => (
     <h1
         className='
-        text-4xl
+        text-3xl md:text-4xl
         font-bold 
         transition-all
         mb-3

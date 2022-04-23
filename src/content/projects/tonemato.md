@@ -1,6 +1,6 @@
 ---
 title: 'tonemato'
-tools: ['react', 'graphql', 'nodejs']
+tools: ['react', 'nextjs', 'graphql', 'nodejs']
 github: 'https://github.com/digitowly/tonemato'
 carousel:
     [

@@ -11,13 +11,16 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
     id,
     sectionRef,
     projects,
+    sectionData,
 }) => {
     return (
         <MainSection id={id} sectionRef={sectionRef}>
-            <div className='flex flex-col justify-between'>
-                <H1>projects:</H1>
+            <div className='flex flex-col'>
+                <H1>{sectionData?.title}</H1>
 
-                <div>
+                <article>{sectionData?.body}</article>
+
+                <div className='mt-24'>
                     {projects.map(project => (
                         <ProjectCard key={project.id} project={project} />
                     ))}

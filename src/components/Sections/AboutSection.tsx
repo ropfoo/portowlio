@@ -2,15 +2,19 @@ import ReactMarkdown from 'react-markdown';
 import { MainSection, SectionProps } from '../Layout';
 import { H1 } from '../Text';
 
-const AboutSection: React.FC<SectionProps> = ({ id, sectionRef, data }) => {
+const AboutSection: React.FC<SectionProps> = ({
+    id,
+    sectionRef,
+    sectionData,
+}) => {
     return (
         <MainSection id={id} sectionRef={sectionRef}>
-            <div className='flex flex-col justify-between'>
+            <div className='flex flex-col'>
                 <div>
-                    <H1>{data?.title}</H1>
-                    {data?.body && (
+                    <H1>{sectionData?.title}</H1>
+                    {sectionData?.body && (
                         <article>
-                            <ReactMarkdown>{data.body}</ReactMarkdown>
+                            <ReactMarkdown>{sectionData.body}</ReactMarkdown>
                         </article>
                     )}
                 </div>

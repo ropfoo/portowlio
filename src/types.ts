@@ -7,16 +7,24 @@ export type ProjectType = {
     githubLink?: string;
 };
 
-export type SectionType = {
+export interface SectionData {
     title: string;
     body: string;
-};
+}
+
+export interface IntroSectionData extends SectionData {
+    githubLink: string;
+    linkedInLink: string;
+}
 
 export type ToolType =
     | 'react'
     | 'react-native'
+    | 'nextjs'
+    | 'gatsby'
     | 'graphql'
     | 'typescript'
     | 'firebase'
     | 'tailwind'
+    | 'flutter'
     | 'nodejs';

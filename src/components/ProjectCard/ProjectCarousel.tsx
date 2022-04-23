@@ -12,6 +12,8 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
             className='rounded-md'
             infiniteLoop
             emulateTouch
+            preventMovementUntilSwipeScrollTolerance
+            swipeScrollTolerance={20}
             showThumbs={false}
             showStatus={false}>
             {imageSources.map(source => (

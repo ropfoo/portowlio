@@ -3,17 +3,17 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import gsap from 'gsap';
 import { Button } from '../Button';
-import { H1Large, P } from '../Text';
+import { H1Large } from '../Text';
 import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
-import { SectionType } from '../../types';
+import { IntroSectionData } from '../../types';
 
 interface IntroSectionProps {
-    data: SectionType;
+    sectionData: IntroSectionData;
 }
 
-const IntroSection: React.FC<IntroSectionProps> = ({ data }) => {
+const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
     const meImageRef = useRef<HTMLDivElement>(null);
     const socialsRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
@@ -69,10 +69,10 @@ const IntroSection: React.FC<IntroSectionProps> = ({ data }) => {
                 <div ref={textRef} className='flex flex-col justify-between'>
                     <div>
                         <div className='mb-24 md:mb-36 xl:mb-52'>
-                            <H1Large>{data.title}</H1Large>
+                            <H1Large>{sectionData.title}</H1Large>
                         </div>
                         <article className='w-8/12'>
-                            <ReactMarkdown>{data.body}</ReactMarkdown>
+                            <ReactMarkdown>{sectionData.body}</ReactMarkdown>
                         </article>
                     </div>
 
@@ -120,12 +120,14 @@ const IntroSection: React.FC<IntroSectionProps> = ({ data }) => {
                             transition-transform
                             duration-300
                             '
-                            href='#'>
+                            href={sectionData.githubLink}
+                            target='_blank'>
                             <GithubIcon />
                         </a>
                         <a
                             className='bg-transparent hover:scale-125 transition-transform duration-300'
-                            href='#'>
+                            href={sectionData.linkedInLink}
+                            target='_blank'>
                             <LinkedinIcon />
                         </a>
                     </div>
