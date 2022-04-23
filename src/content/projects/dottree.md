@@ -5,4 +5,6 @@ tools: ['react', 'ionic', 'firebase']
 carousel: ['/images/projects/tonemato/tonemato_1.png']
 ---
 
-translation tool
+**dottree** is an ionic app I build at dotfly as part of my bachelor thesis.
+It allows to collectively water trees in cities during dry summer periods in
+a playful way.

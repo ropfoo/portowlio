@@ -5,4 +5,4 @@ github: 'https://github.com/ropfoo/pedalbrain'
 carousel: ['/images/projects/tonemato/tonemato_1.png']
 ---
 
-Pedalbrain is an app to store pedal configs
+The idea behind **pedalbrain** was to create a way to store digitlal representations of analogue guitar pedals to memorize different configuraions.

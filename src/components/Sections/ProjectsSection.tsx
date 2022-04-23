@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { ProjectType, ToolType } from '../../types';
 import { MainSection, SectionProps } from '../Layout';
 import ProjectCard from '../ProjectCard/ProjectCard';
@@ -30,7 +31,11 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
             <div className='flex flex-col'>
                 <H1>{sectionData?.title}</H1>
 
-                <article>{sectionData?.body}</article>
+                <article>
+                    {sectionData?.body && (
+                        <ReactMarkdown>{sectionData.body}</ReactMarkdown>
+                    )}
+                </article>
 
                 <div className='mt-24'>
                     <ProjectsFilter
