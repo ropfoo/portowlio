@@ -22,7 +22,6 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
     useEffect(() => {
         gsap.to(meImageRef.current, {
             y: -300,
-            x: -50,
 
             scrollTrigger: {
                 trigger: sectionRef.current,
@@ -33,9 +32,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
             },
         });
         gsap.to(socialsRef.current, {
-            // x: 200,
-            y: -300,
-            // opacity: 0,
+            y: -150,
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: 'center center',
