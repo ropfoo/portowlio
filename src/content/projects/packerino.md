@@ -5,8 +5,8 @@ tools: ['react', 'firebase', 'tailwind']
 github: 'https://github.com/ropfoo/packerino'
 carousel:
     [
-        '/images/projects/tonemato/tonemato_1.png',
-        '/images/projects/tonemato/tonemato_2.png',
+        '/images/projects/packerino/packerino_1.png',
+        '/images/projects/packerino/packerino_2.png',
     ]
 ---
 

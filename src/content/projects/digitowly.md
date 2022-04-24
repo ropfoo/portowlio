@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 title: 'digitowly'
 tools: ['react', 'gatsby']
 # github: 'https://github.com/ropfoo/langry'

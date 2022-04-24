@@ -15,7 +15,8 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
             preventMovementUntilSwipeScrollTolerance
             swipeScrollTolerance={20}
             showThumbs={false}
-            showStatus={false}>
+            showStatus={false}
+            showIndicators={imageSources.length > 1}>
             {imageSources.map(source => (
                 <CarouselElement key={source} source={source} />
             ))}
