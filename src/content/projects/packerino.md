@@ -10,4 +10,4 @@ carousel:
     ]
 ---
 
-Helping to manage and plan gear to take on trips..
+Small web app helping to manage and plan gear to take on trips.
