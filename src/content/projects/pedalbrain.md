@@ -6,4 +6,4 @@ github: 'https://github.com/ropfoo/pedalbrain'
 carousel: ['/images/projects/pedalbrain/pedalbrain_1.png']
 ---
 
-The idea behind **pedalbrain** was to create a way to store digitlal representations of analogue guitar pedals to memorize different configuraions.
+The idea behind **pedalbrain** was to create a way to store digital representations of analogue guitar pedals to memorize different configuraions.
