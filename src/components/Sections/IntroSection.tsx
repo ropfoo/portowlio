@@ -1,57 +1,19 @@
-import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import gsap from 'gsap';
 import { Button } from '../Button';
 import { H1Large } from '../Text';
 import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
 import { IntroSectionData } from '../../types';
+import { useIntroAnimation } from '../Intro/useIntroAnimation';
 
 interface IntroSectionProps {
     sectionData: IntroSectionData;
 }
 
 const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
-    const meImageRef = useRef<HTMLDivElement>(null);
-    const socialsRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
-    const sectionRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        gsap.to(meImageRef.current, {
-            y: -300,
-
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'center center',
-                end: 'bottom 50px',
-                scrub: true,
-                id: 'scrub',
-            },
-        });
-        gsap.to(socialsRef.current, {
-            y: -150,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'center center',
-                end: 'bottom 50px',
-                scrub: true,
-                id: 'scrub',
-            },
-        });
-        gsap.to(textRef.current, {
-            y: -70,
-            scrollTrigger: {
-                trigger: textRef.current,
-                start: 'center center',
-                end: 'bottom 50px',
-                scrub: true,
-                id: 'scrub',
-            },
-        });
-    }, []);
+    const { meImageRef, sectionRef, socialsRef, textRef } = useIntroAnimation();
 
     return (
         <section
@@ -103,16 +65,16 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                         rounded-md
                         flex
                         flex-row md:flex-col
-                        justify-end
+                        justify-around md:justify-end
                         items-center
                         md:pb-7
-                        pr-5 md:pr-0
+                         md:pr-0
                         mt-5 md:mt-0
                 '>
                         <a
                             className='
                             bg-transparent 
-                            pr-5 md:pr-0 
+                            md:pr-0 
                             md:mb-5 
                             hover:scale-125 
                             transition-transform
@@ -136,7 +98,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                         className='
                         w-[150px] xl:w-[250px]
                         h-[500px] xl:h-[611px]
-                        ml-2 md:ml-5 lg:ml-14
+                        ml-3 md:ml-5 lg:ml-14
                         relative 
                     '>
                         <Image

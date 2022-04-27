@@ -30,11 +30,12 @@ interface CarouselElementProps {
 
 const CarouselElement: React.FC<CarouselElementProps> = ({ source }) => {
     return (
-        <div className='h-56 md:h-64 rounded-md'>
+        <div className='h-56 md:h-64 rounded-md relative'>
             <Image
                 className='object-cover rounded-md select-none pointer-events-none'
                 src={source}
                 layout='fill'
+                priority={false}
             />
         </div>
     );

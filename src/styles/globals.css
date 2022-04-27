@@ -18,5 +18,5 @@ body {
 }
 
 p {
-    @apply leading-loose
+    @apply leading-relaxed md:leading-loose
 }
