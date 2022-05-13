@@ -1,5 +1,5 @@
-import { ToolType } from '../../types';
-import ProjectTool from '../ProjectCard/ProjectTool';
+import { ToolType } from '../../../types';
+import ProjectTool from '../../ProjectCard/ProjectTool';
 
 interface ProjectFilterOptionProps {
     tool: ToolType | null;
@@ -17,7 +17,7 @@ const ProjectFilterOption: React.FC<ProjectFilterOptionProps> = ({
     isLast,
 }) => {
     return (
-        <div
+        <button
             key={tool}
             className={`
             flex 
@@ -53,7 +53,7 @@ const ProjectFilterOption: React.FC<ProjectFilterOptionProps> = ({
                 )}
             </div>
             {tool}
-        </div>
+        </button>
     );
 };
 

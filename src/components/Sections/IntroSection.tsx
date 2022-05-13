@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 import { H1Large } from '../Text';
 import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';

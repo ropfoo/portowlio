@@ -1,6 +1,7 @@
 import { RefObject } from 'react';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
 import { mainPadding } from '../Layout';
+import NavbarLink from './NabarLink';
 
 interface NavbarProps {
     navbarRef: RefObject<HTMLDivElement>;
@@ -28,16 +29,10 @@ const Navbar: React.FC<NavbarProps> = ({ navbarRef }) => {
                 <OwlIcon />
             </a>
             <div className='flex'>
-                <a
-                    className='mr-10 hover:text-jeans duration-200 transition-colors'
-                    href='#about'>
-                    about me
-                </a>
-                <a
-                    className='hover:text-jeans duration-200 transition-colors'
-                    href='#projects'>
+                <NavbarLink href='#about'>about me</NavbarLink>
+                <NavbarLink isLast href='#projects'>
                     projects
-                </a>
+                </NavbarLink>
             </div>
         </nav>
     );
