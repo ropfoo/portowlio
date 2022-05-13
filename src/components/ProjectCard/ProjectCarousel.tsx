@@ -35,6 +35,7 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ source }) => {
                 className='object-cover rounded-md select-none pointer-events-none'
                 src={source}
                 layout='fill'
+                sizes='320 640 750'
                 priority={false}
             />
         </div>

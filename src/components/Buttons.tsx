@@ -1,9 +1,9 @@
 interface ButtonProps {
     onClick?: () => void;
-    children: string;
+    title: string;
 }
 
-export function ButtonCTA({ children, onClick }: ButtonProps): JSX.Element {
+export function ButtonCTA({ title, onClick }: ButtonProps): JSX.Element {
     return (
         <button
             onClick={() => onClick && onClick()}
@@ -19,7 +19,7 @@ export function ButtonCTA({ children, onClick }: ButtonProps): JSX.Element {
             transition-all
             duration-300
         '>
-            {children}
+            {title}
         </button>
     );
 }

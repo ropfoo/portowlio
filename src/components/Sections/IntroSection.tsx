@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import { Button } from '../Buttons';
+import { ButtonCTA } from '../Buttons';
 import { H1Large } from '../Text';
 import { mainPadding } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
@@ -42,10 +42,10 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                             mr-0 sm:mr-5
                         '
                             href='#about'>
-                            <Button>about me</Button>
+                            <ButtonCTA title='about me' />
                         </a>
                         <a href='#projects'>
-                            <Button>projects</Button>
+                            <ButtonCTA title='projects' />
                         </a>
                     </section>
                 </div>
@@ -104,6 +104,8 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                         <Image
                             className='object-cover rounded-md select-none pointer-events-none'
                             src='/images/rp_team.jpg'
+                            alt='an image of me'
+                            sizes='320 640 750'
                             layout='fill'
                             priority
                         />
