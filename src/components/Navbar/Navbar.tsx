@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { RefObject } from 'react';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
 import { mainPadding } from '../Layout';
@@ -5,22 +6,30 @@ import NavbarLink from './NabarLink';
 
 interface NavbarProps {
     navbarRef: RefObject<HTMLDivElement>;
+    isVisible: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ navbarRef }) => {
+export default function Navbar({
+    navbarRef,
+    isVisible,
+}: NavbarProps): JSX.Element {
     return (
-        <nav
+        <motion.nav
             ref={navbarRef}
+            animate={{
+                y: isVisible ? 64 : 0,
+            }}
+            transition={{ type: 'tween', duration: 0.5 }}
             className={`
-            bg-nightowl
+            bg-nightowl/90
             fixed 
             flex 
+            backdrop-blur-md backdrop-brightness-90
             font-bold 
-            -top-16 
+            -top-16
             z-10 
             py-5 
             w-full 
-            opacity-95 
             justify-between
             items-center
             ${mainPadding}
@@ -34,8 +43,6 @@ const Navbar: React.FC<NavbarProps> = ({ navbarRef }) => {
                     projects
                 </NavbarLink>
             </div>
-        </nav>
+        </motion.nav>
     );
-};
-
-export default Navbar;
+}

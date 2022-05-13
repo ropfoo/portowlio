@@ -42,9 +42,13 @@ export default function SelectedFilter({
             </div>
             <div
                 className={`
-                -rotate-90
+                
                 transition-transform
-                ${isOptionsVisible ? 'scale-100' : 'scale-[65%]'}
+                ${
+                    isOptionsVisible
+                        ? 'scale-100 -rotate-90'
+                        : 'scale-[65%] rotate-0'
+                }
             `}>
                 <ArrowIcon color={isOptionsVisible ? '#0085FF' : '#EEF3F7'} />
             </div>

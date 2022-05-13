@@ -2,18 +2,24 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { ButtonCTA } from '../Buttons';
 import { H1Large } from '../Text';
-import { mainPadding } from '../Layout';
+import { mainPadding, SectionProps } from '../Layout';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
 import { IntroSectionData } from '../../types';
-import { useIntroAnimation } from '../Intro/useIntroAnimation';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
-interface IntroSectionProps {
+interface IntroSectionProps extends SectionProps {
     sectionData: IntroSectionData;
 }
 
-const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
-    const { meImageRef, sectionRef, socialsRef, textRef } = useIntroAnimation();
+const IntroSection: React.FC<IntroSectionProps> = ({
+    sectionData,
+    sectionRef,
+}) => {
+    const { scrollY } = useViewportScroll();
+    const linksY = useTransform(scrollY, [0, 2000], [0, 100]);
+    const meImageOpacity = useTransform(scrollY, [0, 1000], [1, 0]);
+    const meImageY = useTransform(scrollY, [0, 800], [0, -100]);
 
     return (
         <section
@@ -25,7 +31,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                 flex-row 
                 justify-between
             '>
-                <div ref={textRef} className='flex flex-col justify-between'>
+                <div className='flex flex-col justify-between'>
                     <div>
                         <div className='mb-24 md:mb-36 xl:mb-52'>
                             <H1Large>{sectionData.title}</H1Large>
@@ -56,8 +62,8 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                     items-end 
                     ml-2
                 '>
-                    <div
-                        ref={socialsRef}
+                    <motion.div
+                        style={{ y: linksY }}
                         className='
                         bg-snowowl 
                         h-12 md:h-72 
@@ -92,9 +98,9 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                             rel='noreferrer'>
                             <LinkedinIcon />
                         </a>
-                    </div>
-                    <div
-                        ref={meImageRef}
+                    </motion.div>
+                    <motion.div
+                        style={{ y: meImageY, opacity: meImageOpacity }}
                         className='
                         w-[150px] xl:w-[250px]
                         h-[500px] xl:h-[611px]
@@ -109,7 +115,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
                             layout='fill'
                             priority
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

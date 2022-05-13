@@ -1,17 +1,24 @@
 import { ProjectType } from '../../types';
 import { GithubIcon } from '../icons/Github/GithubIcon';
-import { H3, P } from '../Text';
+import { H3 } from '../Text';
 import ProjectCarousel from './ProjectCarousel';
 import ProjectTools from './ProjectTools';
 import ReactMarkdown from 'react-markdown';
+import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
     project: ProjectType;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export default function ProjectCard({
+    project,
+}: ProjectCardProps): JSX.Element {
     return (
-        <div
+        <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-75px' }}
+            transition={{ type: 'tween', duration: 0.5 }}
             className='
             flex 
             flex-col md:flex-row
@@ -56,8 +63,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             '>
                 <ProjectCarousel imageSources={project.carousel} />
             </div>
-        </div>
+        </motion.div>
     );
-};
-
-export default ProjectCard;
+}

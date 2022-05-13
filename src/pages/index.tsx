@@ -1,16 +1,14 @@
-import { useRef } from 'react';
+import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
 import Navbar from '../components/Navbar/Navbar';
-import { useNavAnimation } from '../hooks/useNavAnimaiton';
 import { getProjectsData } from '../helper/getProjectsData';
 import { IntroSectionData, ProjectType, SectionData } from '../types';
 import { getIntroSectionData, getSectionData } from '../helper/getSectionData';
+import { useIntroObserver } from '../hooks/useIntroObserver';
 
 export async function getStaticProps() {
     const projects = await getProjectsData();
@@ -37,12 +35,10 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = props => {
-    const aboutRef = useRef(null);
-    const navRef = useRef<HTMLDivElement>(null);
+    const aboutRef = React.useRef(null);
+    const navRef = React.useRef<HTMLDivElement>(null);
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    useNavAnimation(navRef, aboutRef);
+    const { introRef, showNavigation } = useIntroObserver();
 
     return (
         <div>
@@ -54,9 +50,12 @@ const Home: NextPage<HomeProps> = props => {
                     href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
                     rel='stylesheet'></link>
             </Head>
-            <Navbar navbarRef={navRef} />
+            <Navbar isVisible={showNavigation} navbarRef={navRef} />
             <main>
-                <IntroSection sectionData={props.introSectionData} />
+                <IntroSection
+                    sectionRef={introRef}
+                    sectionData={props.introSectionData}
+                />
                 <AboutSection
                     id='about'
                     sectionRef={aboutRef}
