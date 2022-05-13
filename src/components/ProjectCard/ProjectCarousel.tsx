@@ -37,7 +37,6 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ source }) => {
                 layout='fill'
                 sizes='320'
                 quality={75}
-                priority={false}
             />
         </div>
     );
