@@ -1,25 +1,19 @@
 import { motion } from 'framer-motion';
-import { RefObject } from 'react';
+import Link from 'next/link';
+import { useNavObserver } from '../../hooks/useNavObserver';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
-import { mainPadding } from '../Layout';
+import { mainPadding } from '../Section';
 import NavbarLink from './NabarLink';
 
-interface NavbarProps {
-    navbarRef: RefObject<HTMLDivElement>;
-    isVisible: boolean;
-}
+export default function Navbar(): JSX.Element {
+    const { showNavigation } = useNavObserver({ options: { threshold: 0.8 } });
 
-export default function Navbar({
-    navbarRef,
-    isVisible,
-}: NavbarProps): JSX.Element {
     return (
         <motion.nav
-            ref={navbarRef}
             animate={{
-                y: isVisible ? 64 : 0,
+                y: showNavigation ? 64 : 0,
             }}
-            transition={{ type: 'tween', duration: 0.5 }}
+            transition={{ type: 'tween', duration: 0.35, ease: 'easeInOut' }}
             className={`
             bg-nightowl/90
             fixed 
@@ -34,12 +28,14 @@ export default function Navbar({
             items-center
             ${mainPadding}
         `}>
-            <a href='#'>
-                <OwlIcon />
-            </a>
+            <Link href='/#' passHref scroll>
+                <div>
+                    <OwlIcon />
+                </div>
+            </Link>
             <div className='flex'>
-                <NavbarLink href='#about'>about me</NavbarLink>
-                <NavbarLink isLast href='#projects'>
+                <NavbarLink href='/#about'>about me</NavbarLink>
+                <NavbarLink isLast href='/#projects'>
                     projects
                 </NavbarLink>
             </div>

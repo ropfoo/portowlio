@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import { Article } from '../Article';
-import { MainSection, SectionProps } from '../Layout';
+import { MainSection, SectionProps } from '../Section';
 import { H1 } from '../Text';
 
 const AboutSection: React.FC<SectionProps> = ({

@@ -13,10 +13,9 @@ html {
   }
 
 body {
-    @apply bg-nightowl;
-    @apply text-snowowl;
+    @apply bg-nightowl text-snowowl;
 }
 
 p {
-    @apply leading-relaxed md:leading-loose
+    @apply text-sm leading-relaxed md:leading-loose md:text-base
 }

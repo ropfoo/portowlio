@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { ProjectType, ToolType } from '../../types';
 import { Article } from '../Article';
-import { MainSection, SectionProps } from '../Layout';
+import { MainSection, SectionProps } from '../Section';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectsFilter from '../ProjectsFilter/ProjectsFilter';
 import { H1 } from '../Text';

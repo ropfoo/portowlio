@@ -2,7 +2,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { ButtonCTA } from '../Buttons';
 import { H1Large } from '../Text';
-import { mainPadding, SectionProps } from '../Layout';
+import { mainPadding, SectionProps } from '../Section';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
 import { IntroSectionData } from '../../types';
@@ -12,18 +12,15 @@ interface IntroSectionProps extends SectionProps {
     sectionData: IntroSectionData;
 }
 
-const IntroSection: React.FC<IntroSectionProps> = ({
-    sectionData,
-    sectionRef,
-}) => {
+const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
     const { scrollY } = useViewportScroll();
-    const linksY = useTransform(scrollY, [0, 2000], [0, 100]);
+    const textContentY = useTransform(scrollY, [0, 500], [0, 50]);
+    const linksY = useTransform(scrollY, [0, 2000], [0, 50]);
     const meImageOpacity = useTransform(scrollY, [0, 1000], [1, 0]);
-    const meImageY = useTransform(scrollY, [0, 800], [0, -100]);
+    const meImageY = useTransform(scrollY, [0, 2000], [0, -100]);
 
     return (
         <section
-            ref={sectionRef}
             className={`flex h-screen justify-center flex-col ${mainPadding}`}>
             <div
                 className='
@@ -31,9 +28,11 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                 flex-row 
                 justify-between
             '>
-                <div className='flex flex-col justify-between'>
+                <motion.div
+                    style={{ y: textContentY }}
+                    className='flex flex-col justify-between'>
                     <div>
-                        <div className='mb-24 md:mb-36 xl:mb-52'>
+                        <div className='mb-16 md:mb-36 xl:mb-52'>
                             <H1Large>{sectionData.title}</H1Large>
                         </div>
                         <article className='w-full md:w-8/12'>
@@ -54,12 +53,12 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                             <ButtonCTA title='projects' />
                         </a>
                     </section>
-                </div>
+                </motion.div>
                 <div
                     className='
                     flex
                     flex-col-reverse md:flex-row
-                    items-end 
+                    items-end
                     ml-2
                 '>
                     <motion.div
@@ -67,7 +66,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                         className='
                         bg-snowowl 
                         h-12 md:h-72 
-                        w-[150px] md:w-28 
+                        w-[130px] md:w-28 
                         rounded-md
                         flex
                         flex-row md:flex-col
@@ -76,7 +75,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                         md:pb-7
                          md:pr-0
                         mt-5 md:mt-0
-                '>
+                    '>
                         <a
                             className='
                             bg-transparent 
@@ -102,8 +101,8 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                     <motion.div
                         style={{ y: meImageY, opacity: meImageOpacity }}
                         className='
-                        w-[150px] xl:w-[250px]
-                        h-[500px] xl:h-[611px]
+                        w-[130px] md:w-[150px] xl:w-[250px]
+                        h-[400px] md:h-[500px] xl:h-[611px]
                         ml-3 md:ml-5 lg:ml-14
                         relative 
                     '>

@@ -4,11 +4,9 @@ import Head from 'next/head';
 import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
-import Navbar from '../components/Navbar/Navbar';
 import { getProjectsData } from '../helper/getProjectsData';
 import { IntroSectionData, ProjectType, SectionData } from '../types';
 import { getIntroSectionData, getSectionData } from '../helper/getSectionData';
-import { useIntroObserver } from '../hooks/useIntroObserver';
 
 export async function getStaticProps() {
     const projects = await getProjectsData();
@@ -35,39 +33,16 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = props => {
-    const aboutRef = React.useRef(null);
-    const navRef = React.useRef<HTMLDivElement>(null);
-
-    const { introRef, showNavigation } = useIntroObserver();
-
     return (
-        <div>
-            <Head>
-                <title>Portfolio | Robert Pasdziernik</title>
-                <meta name='description' content='portfolio' />
-                <link rel='icon' href='/favicon.ico' />
-                <link
-                    href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'
-                    rel='stylesheet'></link>
-            </Head>
-            <Navbar isVisible={showNavigation} navbarRef={navRef} />
-            <main>
-                <IntroSection
-                    sectionRef={introRef}
-                    sectionData={props.introSectionData}
-                />
-                <AboutSection
-                    id='about'
-                    sectionRef={aboutRef}
-                    sectionData={props.aboutSectionData}
-                />
-                <ProjectsSection
-                    id='projects'
-                    projects={props.projects}
-                    sectionData={props.projectsSectionData}
-                />
-            </main>
-        </div>
+        <>
+            <IntroSection sectionData={props.introSectionData} />
+            <AboutSection id='about' sectionData={props.aboutSectionData} />
+            <ProjectsSection
+                id='projects'
+                projects={props.projects}
+                sectionData={props.projectsSectionData}
+            />
+        </>
     );
 };
 

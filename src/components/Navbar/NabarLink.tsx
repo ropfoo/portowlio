@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import * as React from 'react';
 
 interface NavbarLinkProps {
@@ -8,16 +9,17 @@ interface NavbarLinkProps {
 
 function NavbarLink({ children, href, isLast }: NavbarLinkProps): JSX.Element {
     return (
-        <a
-            className={`
-            ${!isLast && 'mr-10'} 
-            duration-200 
-            transition-all
-            hover:text-jeans 
-            `}
-            href={href}>
-            {children}
-        </a>
+        <Link href={href} passHref scroll>
+            <div
+                className={`
+                ${!isLast && 'mr-10'} 
+                duration-200 
+                transition-all
+                hover:text-jeans 
+            `}>
+                {children}
+            </div>
+        </Link>
     );
 }
 
