@@ -1,30 +1,30 @@
 export type ProjectType = {
-    id: string;
-    public: boolean;
-    title: string;
-    description: string;
-    toolIds: ToolType[];
-    carousel: string[];
-    githubLink?: string;
+  id: string;
+  public: boolean;
+  title: string;
+  description: string;
+  toolIds: ToolType[];
+  carousel: string[];
+  githubLink?: string;
 };
 
 export interface SectionData {
-    title: string;
-    body: string;
+  title: string;
+  body: string;
 }
 
 export interface IntroSectionData extends SectionData {
-    githubLink: string;
-    linkedInLink: string;
+  githubLink: string;
+  linkedInLink: string;
 }
 
 export type ToolType =
-    | 'react'
-    | 'nextjs'
-    | 'gatsby'
-    | 'graphql'
-    | 'firebase'
-    | 'tailwind'
-    | 'flutter'
-    | 'ionic'
-    | 'nodejs';
+  | 'react'
+  | 'nextjs'
+  | 'gatsby'
+  | 'graphql'
+  | 'firebase'
+  | 'tailwind'
+  | 'flutter'
+  | 'ionic'
+  | 'nodejs';

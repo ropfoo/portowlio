@@ -3,19 +3,18 @@
 @tailwind utilities;
 
 * {
-    @apply font-montserrat;
+  @apply font-montserrat;
 }
 
 html {
-    scroll-behavior: smooth;
-    @apply bg-nightowl;
-
-  }
+  scroll-behavior: smooth;
+  @apply bg-nightowl;
+}
 
 body {
-    @apply bg-nightowl text-snowowl;
+  @apply bg-nightowl text-snowowl;
 }
 
 p {
-    @apply text-sm leading-relaxed md:leading-loose md:text-base
+  @apply text-sm leading-relaxed md:text-base md:leading-loose;
 }

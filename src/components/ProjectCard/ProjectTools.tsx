@@ -2,33 +2,32 @@ import { ToolType } from '../../types';
 import ProjectTool from './ProjectTool';
 
 interface ProjectToolsProps {
-    tools: ToolType[];
+  tools: ToolType[];
 }
 
 const ProjectTools: React.FC<ProjectToolsProps> = ({ tools }) => {
-    return (
-        <div
-            className='
-            py-2 
-            px-3 
-            bg-mouse 
-            rounded-full
+  return (
+    <div
+      className='
+            mb-9 
+            mt-5 
+            flex 
             w-fit
-            flex
-            mb-9
-            mt-5
             items-center
             justify-evenly
-        '>
-            {tools.map((tool, index) => (
-                <div
-                    className={`${index < tools.length - 1 && 'pr-4'}`}
-                    key={tool}>
-                    <ProjectTool tool={tool} />
-                </div>
-            ))}
+            rounded-full
+            bg-mouse
+            py-2
+            px-3
+        '
+    >
+      {tools.map((tool, index) => (
+        <div className={`${index < tools.length - 1 && 'pr-4'}`} key={tool}>
+          <ProjectTool tool={tool} />
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default ProjectTools;

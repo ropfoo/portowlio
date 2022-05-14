@@ -4,27 +4,27 @@ import { ProjectType } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 export async function getProjectsData(): Promise<ProjectType[]> {
-    const projectFiles = await readdir('src/content/projects');
+  const projectFiles = await readdir('src/content/projects');
 
-    let projects: ProjectType[] = [];
+  let projects: ProjectType[] = [];
 
-    for (const projectFile of projectFiles) {
-        const source = await readFile(
-            `src/content/projects/${projectFile}`,
-            'utf8'
-        );
-        const { data, content } = matter(source);
+  for (const projectFile of projectFiles) {
+    const source = await readFile(
+      `src/content/projects/${projectFile}`,
+      'utf8'
+    );
+    const { data, content } = matter(source);
 
-        projects.push({
-            id: uuidv4(),
-            public: !!data.public,
-            title: data.title,
-            toolIds: data.tools,
-            githubLink: data.github ?? '',
-            carousel: data.carousel,
-            description: content,
-        });
-    }
+    projects.push({
+      id: uuidv4(),
+      public: !!data.public,
+      title: data.title,
+      toolIds: data.tools,
+      githubLink: data.github ?? '',
+      carousel: data.carousel,
+      description: content,
+    });
+  }
 
-    return projects;
+  return projects;
 }

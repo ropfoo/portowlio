@@ -3,55 +3,57 @@ import { ArrowIcon } from '../../icons/Arrow/ArrowIcon';
 import ProjectTool from '../../ProjectCard/ProjectTool';
 
 interface SelectedFilterProps {
-    toggleOptions: () => void;
-    isOptionsVisible: boolean;
-    activeFilter: ToolType | null;
+  toggleOptions: () => void;
+  isOptionsVisible: boolean;
+  activeFilter: ToolType | null;
 }
 export default function SelectedFilter({
-    isOptionsVisible,
-    activeFilter,
-    toggleOptions,
+  isOptionsVisible,
+  activeFilter,
+  toggleOptions,
 }: SelectedFilterProps): JSX.Element {
-    return (
-        <button
-            onClick={toggleOptions}
-            className={`
+  return (
+    <button
+      onClick={toggleOptions}
+      className={`
+            flex
+            w-36
+            items-center
+            justify-between
+            bg-stoneowl
             px-3
             py-4
-            md:hidden
-            w-36
-            flex
-            bg-stoneowl
             transition-all
-            justify-between
-            items-center
             duration-200
+            md:hidden
             ${isOptionsVisible ? 'rounded-l-lg' : 'rounded-lg'}
-        `}>
-            <div className='flex'>
-                {activeFilter && (
-                    <div className='mr-2'>
-                        <ProjectTool
-                            color={'#EEF3F7'}
-                            tool={activeFilter}
-                            showNameOnHover={false}
-                        />
-                    </div>
-                )}
-                {activeFilter ?? 'all'}
-            </div>
-            <div
-                className={`
+        `}
+    >
+      <div className='flex'>
+        {activeFilter && (
+          <div className='mr-2'>
+            <ProjectTool
+              color={'#EEF3F7'}
+              tool={activeFilter}
+              showNameOnHover={false}
+            />
+          </div>
+        )}
+        {activeFilter ?? 'all'}
+      </div>
+      <div
+        className={`
                 
                 transition-transform
                 ${
-                    isOptionsVisible
-                        ? 'scale-100 -rotate-90'
-                        : 'scale-[65%] rotate-0'
+                  isOptionsVisible
+                    ? '-rotate-90 scale-100'
+                    : 'rotate-0 scale-[65%]'
                 }
-            `}>
-                <ArrowIcon color={isOptionsVisible ? '#0085FF' : '#EEF3F7'} />
-            </div>
-        </button>
-    );
+            `}
+      >
+        <ArrowIcon color={isOptionsVisible ? '#0085FF' : '#EEF3F7'} />
+      </div>
+    </button>
+  );
 }

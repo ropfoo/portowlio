@@ -7,62 +7,62 @@ import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
-    project: ProjectType;
+  project: ProjectType;
 }
 
 export default function ProjectCard({
-    project,
+  project,
 }: ProjectCardProps): JSX.Element {
-    return (
-        <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-75px' }}
-            transition={{ type: 'tween', duration: 0.5 }}
-            className='
-            flex 
-            flex-col md:flex-row
-            mb-32 md:mb-0
-        '>
-            <div
-                className='
-                bg-snowowl 
-                text-nightowl 
+  return (
+    <motion.div
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, margin: '-75px' }}
+      transition={{ type: 'tween', duration: 0.5 }}
+      className='
+            mb-32 
+            flex flex-col
+            md:mb-0 md:flex-row
+        '
+    >
+      <div
+        className='
+                mb-2 
+                w-full 
                 rounded-md 
-                p-6 md:p-12
-                w-full md:w-7/12
-                mb-2 md:mb-36
-                md:mr-6
-            '>
-                <div>
-                    <H3>{project.title}</H3>
-                    <ProjectTools tools={project.toolIds} />
-                    <article>
-                        <ReactMarkdown>{project.description}</ReactMarkdown>
-                    </article>
-                    <div className='mt-10'>
-                        {project.githubLink && (
-                            <div className='w-fit hover:scale-125 duration-300'>
-                                <a
-                                    href={project.githubLink}
-                                    target='_blank'
-                                    rel='noreferrer'>
-                                    <GithubIcon size={32} />
-                                </a>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-            <div
-                className='
+                bg-snowowl p-6
+                text-nightowl md:mb-36
+                md:mr-6 md:w-7/12
+                md:p-12
+            '
+      >
+        <div>
+          <H3>{project.title}</H3>
+          <ProjectTools tools={project.toolIds} />
+          <article>
+            <ReactMarkdown>{project.description}</ReactMarkdown>
+          </article>
+          <div className='mt-10'>
+            {project.githubLink && (
+              <div className='w-fit duration-300 hover:scale-125'>
+                <a href={project.githubLink} target='_blank' rel='noreferrer'>
+                  <GithubIcon size={32} />
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div
+        className='
                 h-fit                 
-                w-full md:w-5/12
+                w-full rounded-md
                 bg-snowowl 
-                rounded-md 
-            '>
-                <ProjectCarousel imageSources={project.carousel} />
-            </div>
-        </motion.div>
-    );
+                md:w-5/12 
+            '
+      >
+        <ProjectCarousel imageSources={project.carousel} />
+      </div>
+    </motion.div>
+  );
 }
