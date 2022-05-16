@@ -1,19 +1,18 @@
-import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import { ButtonCTA } from '../Buttons';
 import { H1Large } from '../Text';
 import { SectionProps } from '../Section';
 import { GithubIcon } from '../icons/Github/GithubIcon';
 import { LinkedinIcon } from '../icons/Linkedin/LinkdedInIcon';
 import { IntroSectionData } from '../../types';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import MeImage from './Intro/MeImage';
 
 interface IntroSectionProps extends SectionProps {
   sectionData: IntroSectionData;
 }
 
-const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
+export default function IntroSection({ sectionData }: IntroSectionProps) {
   const { scrollY } = useViewportScroll();
   const textContentY = useTransform(scrollY, [0, 500], [0, 50]);
   const linksY = useTransform(scrollY, [0, 2000], [0, 50]);
@@ -31,7 +30,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
             <div className='mb-16 md:mb-36 xl:mb-52'>
               <H1Large>{sectionData.title}</H1Large>
             </div>
-            <article className='w-full md:w-8/12'>
+            <article className='mb-5 w-10/12 md:w-8/12'>
               <ReactMarkdown>{sectionData.body}</ReactMarkdown>
             </article>
           </div>
@@ -65,13 +64,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
             md:pb-7 md:pr-0'
           >
             <a
-              className='
-              bg-transparent 
-              transition-transform 
-              duration-300 
-              hover:scale-125 
-              md:mb-5 
-              md:pr-0'
+              className='bg-transparent transition-transform duration-300 hover:scale-125 md:mb-5 md:pr-0'
               href={sectionData.githubLink}
               target='_blank'
               rel='noreferrer'
@@ -92,6 +85,4 @@ const IntroSection: React.FC<IntroSectionProps> = ({ sectionData }) => {
       </div>
     </section>
   );
-};
-
-export default IntroSection;
+}

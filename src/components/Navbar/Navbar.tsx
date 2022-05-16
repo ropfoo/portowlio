@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useNavObserver } from '../../hooks/useNavObserver';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
 import { mainPadding } from '../Layout';
-import NavbarLink from './NabarLink';
+import NavbarLink from './NavbarLink';
 
 export default function Navbar(): JSX.Element {
   const { showNavigation } = useNavObserver({ options: { threshold: 0.8 } });
@@ -25,7 +25,7 @@ export default function Navbar(): JSX.Element {
       py-5 
       font-bold 
       backdrop-blur-md
-      backdrop-brightness-90
+      backdrop-brightness-200
       ${mainPadding}
         `}
     >
