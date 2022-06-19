@@ -1,5 +1,7 @@
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useNavObserver } from '../../hooks/useNavObserver';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
 import { mainPadding } from '../Layout';
@@ -14,20 +16,11 @@ export default function Navbar(): JSX.Element {
         y: showNavigation ? 64 : 0,
       }}
       transition={{ type: 'tween', duration: 0.35, ease: 'easeInOut' }}
-      className={`
-      fixed
-      -top-16 
-      z-10 
-      flex w-full
-      items-center 
-      justify-between
-      bg-nightowl/90 
-      py-5 
-      font-bold 
-      backdrop-blur-md
-      backdrop-brightness-200
-      ${mainPadding}
-        `}
+      className={clsx(
+        'fixed -top-16 z-10 flex w-full items-center justify-between py-5 font-bold',
+        'bg-nightowl/90 backdrop-blur-md backdrop-brightness-200',
+        mainPadding
+      )}
     >
       <Link href='/#' passHref scroll>
         <a>
