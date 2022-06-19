@@ -26,7 +26,6 @@ interface MaxpiePageProps {
 }
 
 const MaxpiePage: NextPage<MaxpiePageProps> = (props) => {
-  console.log(props);
   const { title, body } = props.info;
   return (
     <MainSection>
