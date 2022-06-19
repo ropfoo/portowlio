@@ -7,6 +7,7 @@ import { MainSection } from '../../components/Section';
 import { Article } from '../../components/Article';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
+import { A } from '../../components/Link';
 
 export async function getStaticProps() {
   const maxpieInfo = await getPageData('maxpie/info');
@@ -36,17 +37,10 @@ const MaxpiePage: NextPage<MaxpiePageProps> = (props) => {
       <Article>
         <ul>
           <li>
-            <Link href={'/maxpie/privacy'}>
-              <a className='text-jeans'>Privacy</a>
-            </Link>
+            <A href={'/maxpie/privacy'}>Privacy</A>
           </li>
           <li>
-            <a
-              href='mailto:robert.pasdziernik@gmail.com'
-              className='text-jeans'
-            >
-              Email Support
-            </a>
+            <A href='mailto:robert.pasdziernik@gmail.com'>Email Support</A>
           </li>
         </ul>
       </Article>

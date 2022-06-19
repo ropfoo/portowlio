@@ -6,6 +6,7 @@ import { SectionData } from '../../types';
 import { MainSection } from '../../components/Section';
 import { Article } from '../../components/Article';
 import ReactMarkdown from 'react-markdown';
+import { Back } from '../../components/Link';
 
 export async function getStaticProps() {
   const maxpiePrivacy = await getPageData('maxpie/privacy');
@@ -28,6 +29,7 @@ const MaxpiePrivacyPage: NextPage<MaxpiePrivacyPageProps> = (props) => {
     <MainSection>
       <H1>{title}</H1>
       <Article>
+        <Back />
         <ReactMarkdown>{body}</ReactMarkdown>
       </Article>
     </MainSection>

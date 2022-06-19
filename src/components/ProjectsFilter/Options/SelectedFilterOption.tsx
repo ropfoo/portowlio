@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { ToolType } from '../../../types';
 import { ArrowIcon } from '../../icons/Arrow/ArrowIcon';
 import ProjectTool from '../../ProjectCard/ProjectTool';
@@ -42,17 +43,12 @@ export default function SelectedFilter({
         {activeFilter ?? 'all'}
       </div>
       <div
-        className={`
-                
-                transition-transform
-                ${
-                  isOptionsVisible
-                    ? '-rotate-90 scale-100'
-                    : 'rotate-0 scale-[65%]'
-                }
-            `}
+        className={clsx('transition-transform', {
+          '-rotate-90 scale-100 fill-jeans': isOptionsVisible,
+          'rotate-0 scale-[65%] fill-mouse': !isOptionsVisible,
+        })}
       >
-        <ArrowIcon color={isOptionsVisible ? '#0085FF' : '#EEF3F7'} />
+        <ArrowIcon />
       </div>
     </button>
   );
