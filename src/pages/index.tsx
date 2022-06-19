@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
 import AboutSection from '../components/Sections/AboutSection';
