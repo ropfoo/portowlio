@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { ProjectType, ToolType } from '../../types';

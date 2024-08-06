@@ -1,3 +1,5 @@
+'use client';
+
 import ReactMarkdown from 'react-markdown';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import { ButtonCTA } from '../Buttons';
