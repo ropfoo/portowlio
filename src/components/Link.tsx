@@ -11,10 +11,11 @@ interface AProps {
 
 export function A({ children, href }: AProps) {
   return (
-    <Link href={href} passHref>
-      <a className='cursor-pointer text-jeans hover:text-jeanslight'>
-        {children}
-      </a>
+    <Link
+      href={href}
+      className='cursor-pointer text-jeans hover:text-jeanslight'
+    >
+      {children}
     </Link>
   );
 }

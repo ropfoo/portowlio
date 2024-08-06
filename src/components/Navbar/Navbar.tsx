@@ -22,10 +22,8 @@ export default function Navbar(): JSX.Element {
         mainPadding
       )}
     >
-      <Link href='/#' passHref scroll>
-        <a>
-          <OwlIcon />
-        </a>
+      <Link href='/#' scroll>
+        <OwlIcon />
       </Link>
       <div className='flex'>
         <NavbarLink href='/#about'>about me</NavbarLink>
