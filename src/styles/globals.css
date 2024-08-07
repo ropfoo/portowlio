@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply font-montserrat;
-}
-
 html {
   scroll-behavior: smooth;
   @apply bg-nightowl;

@@ -5,6 +5,12 @@ import { MainSection } from '../../../components/Section';
 import { Article } from '../../../components/Article';
 import ReactMarkdown from 'react-markdown';
 import { A } from '../../../components/Link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Maxpie Privacy | Robert Pasdziernik',
+  description: 'Maxpie App Privacy',
+};
 
 export default async function MaxpiePrivacyPage() {
   const maxpiePrivacy = await getPageData('maxpie/privacy');

@@ -1,8 +1,14 @@
+import { Metadata } from 'next';
 import AboutSection from '../components/Sections/AboutSection';
 import IntroSection from '../components/Sections/IntroSection';
 import ProjectsSection from '../components/Sections/ProjectsSection';
 import { getProjectsData } from '../helper/getProjectsData';
 import { getIntroSectionData, getSectionData } from '../helper/getSectionData';
+
+export const metadata: Metadata = {
+  title: 'Portfolio | Robert Pasdziernik',
+  description: 'portfolio',
+};
 
 export default async function Main() {
   const projects = await getProjectsData();

@@ -5,28 +5,15 @@ import { MainSection } from '../../components/Section';
 import { Article } from '../../components/Article';
 import ReactMarkdown from 'react-markdown';
 import { A } from '../../components/Link';
-import Link from 'next/link';
+import { Metadata } from 'next';
 
-// export async function getStaticProps() {
-//   const maxpieInfo = await getPageData('maxpie/info');
-//   const maxpiePrivacy = await getPageData('maxpie/privacy');
-
-//   return {
-//     props: {
-//       info: maxpieInfo,
-//       privacy: maxpiePrivacy,
-//     },
-//   };
-// }
-
-// interface MaxpiePageProps {
-//   info: SectionData;
-//   privacy: SectionData;
-// }
+export const metadata: Metadata = {
+  title: 'Maxpie | Robert Pasdziernik',
+  description: 'Maxpie App',
+};
 
 export default async function MaxpiePage() {
   const maxpieInfo = await getPageData('maxpie/info');
-  // const { title, body } = props.info;
   return (
     <MainSection>
       <H1>{maxpieInfo.title}</H1>
