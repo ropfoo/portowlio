@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { ProjectType, ToolType } from '../../types';
@@ -40,10 +42,7 @@ const ProjectsSection: React.FC<ProjectSectionProps> = ({
         </Article>
 
         <div className='mt-24'>
-          <ProjectsFilter
-            activeFilter={filter}
-            handleChange={(filterType) => setFilter(filterType)}
-          />
+          <ProjectsFilter activeFilter={filter} handleChange={setFilter} />
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

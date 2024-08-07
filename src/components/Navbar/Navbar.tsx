@@ -1,7 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useNavObserver } from '../../hooks/useNavObserver';
 import { OwlIcon } from '../icons/Owl/OwlIcon';
 import { mainPadding } from '../Layout';

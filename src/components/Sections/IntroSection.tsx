@@ -1,5 +1,7 @@
+'use client';
+
 import ReactMarkdown from 'react-markdown';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ButtonCTA } from '../Buttons';
 import { H1Large } from '../Text';
 import { SectionProps } from '../Section';
@@ -13,7 +15,7 @@ interface IntroSectionProps extends SectionProps {
 }
 
 export default function IntroSection({ sectionData }: IntroSectionProps) {
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   const textContentY = useTransform(scrollY, [0, 500], [0, 50]);
   const linksY = useTransform(scrollY, [0, 2000], [0, 50]);
 

@@ -1,5 +1,5 @@
 ---
-title: 'about me:'
+title: 'about me'
 ---
 
 I was born in Berlin, moved to NRW to study Visual Computing and Design and am now working as a fontend developer in Cologne.

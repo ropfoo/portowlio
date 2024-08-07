@@ -1,38 +1,24 @@
 import * as React from 'react';
-import type { NextPage } from 'next';
 import { H1 } from '../../components/Text';
 import { getPageData } from '../../helper/getPageData';
-import { SectionData } from '../../types';
 import { MainSection } from '../../components/Section';
 import { Article } from '../../components/Article';
 import ReactMarkdown from 'react-markdown';
-import Link from 'next/link';
 import { A } from '../../components/Link';
+import { Metadata } from 'next';
 
-export async function getStaticProps() {
+export const metadata: Metadata = {
+  title: 'Maxpie | Robert Pasdziernik',
+  description: 'Maxpie App',
+};
+
+export default async function MaxpiePage() {
   const maxpieInfo = await getPageData('maxpie/info');
-  const maxpiePrivacy = await getPageData('maxpie/privacy');
-
-  return {
-    props: {
-      info: maxpieInfo,
-      privacy: maxpiePrivacy,
-    },
-  };
-}
-
-interface MaxpiePageProps {
-  info: SectionData;
-  privacy: SectionData;
-}
-
-const MaxpiePage: NextPage<MaxpiePageProps> = (props) => {
-  const { title, body } = props.info;
   return (
     <MainSection>
-      <H1>{title}</H1>
+      <H1>{maxpieInfo.title}</H1>
       <Article>
-        <ReactMarkdown>{body}</ReactMarkdown>
+        <ReactMarkdown>{maxpieInfo.body}</ReactMarkdown>
       </Article>
       <Article>
         <ul>
@@ -46,6 +32,4 @@ const MaxpiePage: NextPage<MaxpiePageProps> = (props) => {
       </Article>
     </MainSection>
   );
-};
-
-export default MaxpiePage;
+}

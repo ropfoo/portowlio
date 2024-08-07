@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 type NavObserverParams = {
@@ -8,9 +8,8 @@ type NavObserverParams = {
 };
 
 export function useNavObserver(params?: NavObserverParams) {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const isToggleing = pathname === '/';
-
   const [showNavigation, setShowNavigation] = React.useState(!isToggleing);
   const options = params?.options ?? { threshold: 1 };
 

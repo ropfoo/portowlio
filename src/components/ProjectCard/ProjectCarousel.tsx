@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { ImageSource } from '../../types';
 
 interface ProjectCarouselProps {
-  imageSources: string[];
+  imageSources: ImageSource[];
 }
 
 const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
@@ -18,25 +19,27 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ imageSources }) => {
       showStatus={false}
       showIndicators={imageSources.length > 1}
     >
-      {imageSources.map((source) => (
-        <CarouselElement key={source} source={source} />
+      {imageSources.map((image) => (
+        <CarouselElement key={image.src} image={image} />
       ))}
     </Carousel>
   );
 };
 
 interface CarouselElementProps {
-  source: string;
+  image: ImageSource;
 }
 
-const CarouselElement: React.FC<CarouselElementProps> = ({ source }) => {
+const CarouselElement: React.FC<CarouselElementProps> = ({ image }) => {
   return (
     <div className='relative h-56 rounded-md md:h-64'>
       <Image
+        alt={image.alt}
         className='pointer-events-none select-none rounded-md object-cover'
-        src={source}
-        layout='fill'
+        src={image.src}
         sizes='320'
+        width={300}
+        height={300}
         quality={75}
       />
     </div>
