@@ -14,7 +14,7 @@ export default function MeImage(): JSX.Element {
         src='/images/rp_team.jpg'
         alt='an image of me'
         sizes='320 640 750'
-        layout='fill'
+        fill
         priority
       />
     </motion.div>
