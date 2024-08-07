@@ -5,8 +5,8 @@ tools: ['react', 'firebase', 'tailwind']
 github: 'https://github.com/ropfoo/packerino'
 carousel:
   [
-    '/images/projects/packerino/packerino_1.png',
-    '/images/projects/packerino/packerino_2.png',
+    { src: '/images/projects/packerino/packerino_1.png', alt: 'some image' },
+    { src: '/images/projects/packerino/packerino_2.png', alt: 'some image' },
   ]
 ---
 
