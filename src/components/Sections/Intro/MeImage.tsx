@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function MeImage(): JSX.Element {
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 2000], [0, -100]);
   return (
     <motion.div
