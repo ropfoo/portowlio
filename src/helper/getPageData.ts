@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import { SectionData } from '../types';
 
 export async function getPageData(
-  type: 'maxpie/info' | 'maxpie/privacy'
+  type: 'maxpie/info' | 'maxpie/privacy' | 'rhymate/info' | 'rhymate/privacy'
 ): Promise<SectionData> {
   const source = await readFile(`src/content/pages/${type}.md`, 'utf8');
   const { data, content } = matter(source);
